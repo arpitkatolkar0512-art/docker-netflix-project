@@ -1,0 +1,16 @@
+body {
+    background-color: black;
+    color: red;
+    text-align: center;
+    font-family: Arial;
+}
+
+.video-container {
+    margin-top: 50px;
+}
+
+video {
+    width: 70%;
+    border: 3px solid red;
+    border-radius: 10px;
+}
