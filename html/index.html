@@ -2,20 +2,67 @@
 <html>
 <head>
     <title>Netflix Clone</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        .video-container {
+            margin-top: 40px;
+        }
+
+        video {
+            width: 70%;
+            border: 3px solid red;
+            border-radius: 12px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: darkred;
+        }
+    </style>
 </head>
+
 <body>
 
 <h1>Netflix Clone 🎬</h1>
 
 <div class="video-container">
-    <video controls autoplay muted>
+    <video id="movie" controls>
         <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
         Your browser does not support video.
     </video>
+
+    <br>
+
+    <button onclick="playWithSound()">▶ Play with Sound</button>
 </div>
 
-<script src="script.js"></script>
+<script>
+    function playWithSound() {
+        const video = document.getElementById("movie");
+        video.muted = false;
+        video.play();
+    }
+</script>
 
 </body>
 </html>
