@@ -1,67 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Netflix Clone</title>
+<title>Netflix Clone</title>
 
-    <style>
-        body {
-            background-color: black;
-            color: red;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
+<style>
+body {
+    margin: 0;
+    background-color: #141414;
+    color: white;
+    font-family: Arial;
+}
 
-        h1 {
-            margin-top: 20px;
-        }
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    background: black;
+    z-index: 10;
+}
 
-        .video-container {
-            margin-top: 40px;
-        }
+.logo {
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+}
 
-        video {
-            width: 70%;
-            border: 3px solid red;
-            border-radius: 12px;
-        }
+/* Banner */
+.banner {
+    height: 60vh;
+    background: url('https://wallpaperaccess.com/full/2703652.png') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+}
 
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: red;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+.banner h1 {
+    font-size: 40px;
+}
 
-        button:hover {
-            background: darkred;
-        }
-    </style>
+/* Rows */
+.row {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.row h2 {
+    margin-bottom: 10px;
+}
+
+.row-posters {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.row-posters img {
+    width: 200px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.row-posters img:hover {
+    transform: scale(1.1);
+}
+
+/* Video Player */
+.player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: black;
+    padding: 10px;
+    display: none;
+}
+
+video {
+    width: 100%;
+}
+</style>
+
 </head>
 
 <body>
 
-<h1>Netflix Clone 🎬</h1>
+<div class="navbar">
+    <span class="logo">NETFLIX</span>
+</div>
 
-<div class="video-container">
-    <video id="movie" controls>
+<div class="banner">
+    <h1>Featured Movie</h1>
+</div>
+
+<!-- Movie Rows -->
+<div class="row">
+    <h2>Trending Now</h2>
+    <div class="row-posters">
+        <img src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg" onclick="playVideo()">
+        <img src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg" onclick="playVideo()">
+        <img src="https://image.tmdb.org/t/p/w500/6ELCZlTA5lGUops70hKdB83WJxH.jpg" onclick="playVideo()">
+        <img src="https://image.tmdb.org/t/p/w500/9O1Iy9od7vt8bnCMaP9HhQJ0V3F.jpg" onclick="playVideo()">
+    </div>
+</div>
+
+<div class="row">
+    <h2>Top Rated</h2>
+    <div class="row-posters">
+        <img src="https://image.tmdb.org/t/p/w500/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg" onclick="playVideo()">
+        <img src="https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" onclick="playVideo()">
+        <img src="https://image.tmdb.org/t/p/w500/yF1eOkaYvwiORauRCPWznV9xVvi.jpg" onclick="playVideo()">
+    </div>
+</div>
+
+<!-- Video Player -->
+<div class="player" id="player">
+    <video id="video" controls>
         <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        Your browser does not support video.
     </video>
-
-    <br>
-
-    <button onclick="playWithSound()">▶ Play with Sound</button>
 </div>
 
 <script>
-    function playWithSound() {
-        const video = document.getElementById("movie");
-        video.muted = false;
-        video.play();
-    }
+function playVideo() {
+    const player = document.getElementById("player");
+    const video = document.getElementById("video");
+
+    player.style.display = "block";
+    video.muted = false;
+    video.play();
+}
+</script>
+
+</body>
+</html>
 </script>
 
 </body>
